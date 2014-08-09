@@ -1,0 +1,25 @@
+https://github.com/github/gitignore/blob/master/ChefCookbook.gitignore
+
+# Vagrant image
+.vagrant
+
+# Bundler
+bin/*
+.bundle/*
+
+# Thumbnails
+._*
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+.tmp/
+dist/
+
+# IDE files
+.idea
+*.swp
+*.pyc
+
+provision.rb
