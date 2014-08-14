@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base"
+  # config.vm.box = "base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -119,4 +119,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.box_url = "https://vagrantcloud.com/ubuntu/trusty64/version/1/provider/virtualbox.box"
+  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.synced_folder "#{ENV['HOME']}/Projects/salimkapadia", "/data"
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+  config.vm.provision "chef_solo" do |chef|
+    # Debug level
+    # chef.log_level = :debug
+
+    # The cookbooks are stored in the current directory.
+    chef.cookbooks_path = "./"
+
+    # The recipes we want executed
+    chef.add_recipe "setup::default"
+  end
+
+
 end

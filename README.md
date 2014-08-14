@@ -17,9 +17,11 @@ Once the above dev dependencies are satisfied on your local machine, do the foll
 ```bash
 git clone https://github.com/salimkapadia/dating-with-node-cookbooks.git
 cd dating-with-node-cookbooks
+git submodule init
+git submodule update
 ```
 
-Edit [Vagrantfile](https://github.com/salimkapadia/dating-with-node-cookbooks/blob/master/Vagrantfile#L47) and set the location of where you intend to download all the source code. Once completed, run the following command.
+Edit [Vagrantfile](https://github.com/salimkapadia/dating-with-node-cookbooks/blob/master/Vagrantfile#L126) and set the location of where you intend to download all source code. Once completed, run the following command.
 ```bash
 vagrant up
 ```
