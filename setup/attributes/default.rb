@@ -38,6 +38,7 @@ default[:setup][:packages] = [
   'mysql-server-5.5',
   'mysql-server-core-5.5',
   'mysql-common',
-  'nodejs',
+  'npm',
+  'node.js',
   'redis-server'
   ]  

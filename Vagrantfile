@@ -122,7 +122,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "ubuntu/trusty64"
   config.vm.box_url = "https://vagrantcloud.com/ubuntu/trusty64/version/1/provider/virtualbox.box"
-  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "192.168.33.12"
   config.vm.synced_folder "#{ENV['HOME']}/Projects/salimkapadia", "/data"
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
@@ -138,5 +138,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "setup::default"
   end
 
-
+  config.vm.provision :shell, inline: %q{cd /data/dating-with-node-cookbooks/scripts/provision.sh}
 end
