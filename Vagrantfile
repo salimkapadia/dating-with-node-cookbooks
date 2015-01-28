@@ -134,9 +134,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # The cookbooks are stored in the current directory.
     chef.cookbooks_path = "./"
 
+    # Install this version of chef on the box.
+    chef.version = "11.16.4"
+
     # The recipes we want executed
     chef.add_recipe "setup::default"
   end
 
-  config.vm.provision :shell, inline: %q{cd /data/dating-with-node-cookbooks/scripts/provision.sh}
+  config.vm.provision :shell, inline: %q{bash /data/dating-with-node-cookbooks/scripts/provision.sh}
 end
