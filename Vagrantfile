@@ -121,7 +121,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.validation_client_name = "ORGNAME-validator"
 
   config.vm.box = "ubuntu/trusty64"
-  config.vm.box_url = "https://vagrantcloud.com/ubuntu/trusty64/version/1/provider/virtualbox.box"
   config.vm.network "private_network", ip: "192.168.33.12"
   config.vm.synced_folder "#{ENV['HOME']}/Projects/salimkapadia", "/data"
   config.vm.provider "virtualbox" do |vb|
@@ -138,5 +137,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "setup::default"
   end
 
-  config.vm.provision :shell, inline: %q{cd /data/dating-with-node-cookbooks/scripts/provision.sh}
+  config.vm.provision :shell, inline: %q{bash /data/dating-with-node-cookbooks/scripts/provision.sh}
 end
